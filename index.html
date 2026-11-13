@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IHAF — International Humanitarian Aid Federation. One Humanity. One Mission. Global Impact.">
+<title>IHAF | International Humanitarian Aid Federation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0c2d4d;
+  --navy-deep: #081f36;
+  --blue: #1a6fa8;
+  --gold: #c9a14a;
+  --gold-soft: #e8d29a;
+  --terracotta: #c45c3a;
+  --sage: #5c7a62;
+  --sand: #f3ebe0;
+  --cream: #faf6f0;
+  --ink: #1c2b3a;
+  --muted: #5a6a7a;
+  --white: #ffffff;
+  --line: #e5ddd2;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: var(--ink);
+  line-height: 1.65;
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { width: min(1140px, 92%); margin: 0 auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 246, 240, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--gold);
+  box-shadow: 0 2px 8px rgba(12, 45, 77, 0.12);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-text strong { font-size: 17px; letter-spacing: 0.4px; }
+.brand-text small {
+  font-size: 9.5px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.links a:hover { color: var(--blue); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 14px;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.18s, background 0.18s;
+}
+.btn:hover { background: #d4ad55; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.75);
+  color: white;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
+.menu {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 26px;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(8, 31, 54, 0.88) 0%, rgba(12, 45, 77, 0.72) 45%, rgba(12, 45, 77, 0.45) 100%),
+    url('https://images.unsplash.com/photo-1567057419565-4349c49d8a04?w=1600&q=80') center/cover no-repeat;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 90px 0 80px;
+  max-width: 620px;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  color: var(--gold-soft);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(36px, 5vw, 54px);
+  line-height: 1.18;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.hero h1 span { color: var(--gold-soft); }
+.hero p {
+  font-size: 17px;
+  color: #d4e0ec;
+  max-width: 500px;
+  margin-bottom: 28px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.photo-strip {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 6px;
+  background: var(--navy-deep);
+}
+.photo-strip img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.photo-strip .caption {
+  grid-column: 1 / -1;
+  background: var(--navy);
+  color: #c5d4e4;
+  font-size: 13px;
+  padding: 10px 4%;
+  text-align: center;
+}
+
+.trust-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 26px 0;
+}
+.trust-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.trust-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--sand);
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+}
+.trust-item strong {
+  display: block;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 700;
+}
+.trust-item span { font-size: 13px; color: var(--muted); }
+
+section { padding: 80px 0; }
+.section-head { max-width: 640px; margin-bottom: 40px; }
+.section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
+.kicker {
+  color: var(--terracotta);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  margin-bottom: 8px;
+}
+.section-head h2 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.25;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.section-head p { color: var(--muted); font-size: 16px; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 48px;
+  align-items: center;
+}
+.about-img {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(12, 45, 77, 0.12);
+  border: 3px solid white;
+}
+.about-img img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+.about-panel {
+  background: var(--white);
+  padding: 28px 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  margin-top: 24px;
+}
+.about-panel h3 {
+  margin: 0 0 14px;
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 700;
+}
+.check {
+  display: flex;
+  gap: 10px;
+  margin: 11px 0;
+  color: #3d4e60;
+  font-size: 14.5px;
+  align-items: flex-start;
+}
+.check .mark {
+  color: var(--gold);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.areas { background: var(--sand); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(12, 45, 77, 0.1);
+}
+.card-img {
+  height: 160px;
+  overflow: hidden;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+.card:hover .card-img img { transform: scale(1.05); }
+.card-body { padding: 20px 18px 22px; }
+.card h3 {
+  color: var(--navy);
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.impact {
+  padding: 24px 18px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+}
+.impact strong {
+  display: block;
+  font-size: 26px;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.impact span { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+.stories { background: var(--white); }
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+}
+.story-large {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 340px;
+}
+.story-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+.story-large .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,31,54,0.85) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: white;
+}
+.story-large h3 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+.story-large p { font-size: 14px; color: #c8d6e6; max-width: 380px; }
+.story-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+}
+.story-small {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 160px;
+}
+.story-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+.story-small .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,31,54,0.8) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  color: white;
+}
+.story-small h3 { font-size: 16px; margin-bottom: 2px; }
+.story-small p { font-size: 13px; color: #c8d6e6; }
+
+.join {
+  background: linear-gradient(125deg, var(--navy-deep), #0d3a5c 60%, #14507a);
+  color: white;
+  position: relative;
+}
+.join-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 44px;
+  align-items: center;
+}
+.join h2 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(28px, 3.6vw, 36px);
+  line-height: 1.2;
+  margin: 10px 0 14px;
+}
+.join p { color: #b8cce0; margin-bottom: 10px; font-size: 15.5px; }
+.join-box {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 28px 26px;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+.join-box h3 {
+  margin: 0 0 4px;
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: 700;
+}
+.join-box .sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.join-box label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 12px 0 5px;
+  color: var(--navy);
+}
+.join-box input,
+.join-box select,
+.join-box textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1.5px solid #d8cfc4;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 15px;
+  background: white;
+  transition: border-color 0.2s;
+}
+.join-box input:focus,
+.join-box select:focus,
+.join-box textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+.join-box textarea { min-height: 80px; resize: vertical; }
+.join-box .btn { width: 100%; margin-top: 16px; padding: 13px; }
+.form-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.contact-card {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+}
+.contact-card h3 {
+  color: var(--navy);
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.contact-card p {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin-bottom: 10px;
+}
+.notice {
+  padding: 12px 14px;
+  background: #fdf4e7;
+  border-left: 3px solid var(--gold);
+  font-size: 13px;
+  color: #6b5420;
+  border-radius: 0 6px 6px 0;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+.arabic {
+  direction: rtl;
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 600;
+  margin: 8px 0 2px;
+}
+
+footer {
+  background: var(--navy-deep);
+  color: #b0c2d4;
+  padding: 42px 0 22px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+.footer-brand span { color: var(--gold); }
+footer p {
+  font-size: 13.5px;
+  color: #8fa3b8;
+  max-width: 400px;
+  line-height: 1.55;
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.footer-links a:hover { color: var(--gold-soft); }
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: #7a8fa5;
+  padding-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .links {
+    display: none;
+    position: absolute;
+    top: 78px; left: 0; right: 0;
+    background: var(--cream);
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .links.open { display: flex; }
+  .menu { display: block; }
+  .nav > .btn { display: none; }
+  .photo-strip { grid-template-columns: 1fr 1fr; }
+  .photo-strip img:first-child { grid-column: 1 / -1; height: 200px; }
+  .about-grid, .join-grid, .contact-grid, .story-grid { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; }
+  .story-side { grid-template-rows: auto auto; }
+  .story-large { min-height: 280px; }
+}
+@media (max-width: 560px) {
+  section { padding: 56px 0; }
+  .cards { grid-template-columns: 1fr; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .photo-strip { grid-template-columns: 1fr; }
+  .photo-strip img { height: 180px; }
+  .hero-content { padding: 70px 0 60px; }
+}
+
+/* WhatsApp buttons */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 8px;
+  background: #25D366;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 15px;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.18s, background 0.18s, box-shadow 0.18s;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  text-decoration: none;
+}
+.btn-whatsapp:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+.btn-whatsapp svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.55);
+}
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+@media (max-width: 560px) {
+  .whatsapp-float {
+    bottom: 18px;
+    right: 18px;
+    width: 54px;
+    height: 54px;
+  }
+}
+
+
+/* ===== Donate section ===== */
+#donate { background: var(--white); }
+.donate-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(12, 45, 77, 0.08);
+}
+.donate-card * { min-width: 0; }
+.d-toggle { display: flex; background: var(--sand); padding: 4px; border-radius: 10px; margin-bottom: 22px; }
+.d-toggle button {
+  flex: 1; padding: 10px; border: 0; background: transparent; font: inherit; font-weight: 700;
+  border-radius: 8px; cursor: pointer; color: var(--muted);
+}
+.d-toggle button.active { background: var(--white); color: var(--navy); box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+.d-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: 700; color: var(--navy); }
+.d-head select, .d-fields input, #d-custom {
+  font: inherit; border: 1.5px solid var(--line); border-radius: 8px; background: var(--white); color: var(--ink);
+}
+.d-head select { padding: 6px 10px; font-weight: 600; }
+.d-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+.d-amounts button {
+  padding: 12px 6px; border: 2px solid var(--line); background: var(--white); border-radius: 10px;
+  font: inherit; font-weight: 700; cursor: pointer; color: var(--navy); transition: .2s;
+}
+.d-amounts button:hover, .d-amounts button.active { border-color: var(--gold); background: #fdf4e7; }
+#d-custom { width: 100%; padding: 12px 14px; margin-bottom: 22px; }
+.d-label { display: block; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.d-tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 18px; }
+.d-tabs button {
+  border: 2px solid var(--line); background: var(--white); border-radius: 10px; padding: 10px 4px;
+  font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; color: var(--ink); line-height: 1.3; transition: .2s;
+}
+.d-tabs button span { display: block; font-size: 20px; margin-bottom: 2px; }
+.d-tabs button.active { border-color: var(--navy); background: var(--navy); color: var(--white); }
+.d-panel { display: block; scroll-margin-top: 100px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+.d-panel.flash { box-shadow: 0 0 0 3px var(--gold); }
+.d-panel h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 17px; color: var(--navy); margin-bottom: 6px; }
+.d-panel > p { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+.d-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  background: var(--cream); border: 1px solid var(--line); border-radius: 8px;
+  padding: 10px 12px; margin-bottom: 10px; font-size: 14px; word-break: break-word;
+}
+.d-row .copy {
+  flex-shrink: 0; background: var(--navy); color: var(--white); border: 0; padding: 6px 12px;
+  border-radius: 6px; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.d-row .copy:hover { background: var(--blue); }
+.d-row .copy.done { background: var(--sage); }
+.blank { font-weight: 800; background: #fff3a8; color: #5b4300; padding: 1px 5px; border-radius: 4px; }
+.d-gateway {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 12px 0;
+}
+.d-gateway div { background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 10px; text-align: center; font-weight: 700; font-size: 13.5px; color: var(--navy); }
+.d-fields { display: grid; gap: 12px; margin-bottom: 14px; }
+.d-fields input, .d-fields select { width: 100%; padding: 12px; font: inherit; font-size: 15px; border: 1.5px solid var(--line); border-radius: 8px; background: var(--white); color: var(--ink); }
+.d-fields small { color: var(--muted); font-size: 12px; margin-top: -6px; }
+.d-fee { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); margin-bottom: 18px; cursor: pointer; }
+.d-total { display: flex; justify-content: space-between; font-weight: 700; color: var(--navy); padding: 12px 0; border-top: 1px dashed var(--line); margin-bottom: 14px; }
+.d-submit { width: 100%; padding: 15px; font-size: 16px; }
+.d-result { display: none; margin-top: 12px; font-size: 13.5px; color: #145c37; }
+.d-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 18px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); text-align: center; }
+.d-badges span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+@media (max-width: 640px) {
+  .donate-card { padding: 20px 16px; }
+  .d-amounts { grid-template-columns: repeat(2, 1fr); }
+  .d-tabs { grid-template-columns: repeat(3, 1fr); }
+  .d-row { flex-direction: column; align-items: flex-start; }
+}
+
+/* Donate bar icon + floating button */
+.btn-donate {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 11px 18px; border-radius: 6px;
+  background: var(--terracotta); color: #fff !important;
+  font-weight: 700; font-size: 14px; white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(196, 92, 58, 0.35);
+  transition: transform .18s, background .18s;
+}
+.btn-donate:hover { background: #b04e2e; transform: translateY(-1px); }
+.btn-donate .heart { display: inline-block; animation: heartbeat 1.6s ease-in-out infinite; }
+@keyframes heartbeat { 0%,100% { transform: scale(1); } 15% { transform: scale(1.25); } 30% { transform: scale(1); } }
+.donate-float {
+  position: fixed; left: 20px; bottom: 24px; z-index: 999;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 20px; border-radius: 999px;
+  background: var(--terracotta); color: #fff; font-weight: 700; font-size: 15px;
+  box-shadow: 0 6px 20px rgba(196, 92, 58, 0.45);
+  transition: transform .2s;
+}
+.donate-float:hover { transform: scale(1.06); }
+@media (max-width: 900px) {
+  .nav { gap: 10px; }
+  .brand-text small { display: none; }
+  .btn-donate { padding: 9px 14px; margin-left: auto; }
+}
+@media (max-width: 560px) {
+  .donate-float { left: 14px; bottom: 18px; padding: 12px 16px; }
+}
+
+/* ===== Natural graphics layer ===== */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50;
+  opacity: .045; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1  0 0 0 0 .1  0 0 0 0 .1  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wave { position: absolute; left: 0; width: 100%; height: 46px; display: block; pointer-events: none; z-index: 0; }
+.wave.top { top: -1px; }
+.wave.bottom { bottom: -1px; z-index: 1; }
+#about, #donate, #contact, .join { position: relative; }
+#about, #donate, #contact { overflow: hidden; }
+#about .wrap, #donate .wrap, #contact .wrap, .join .wrap { position: relative; z-index: 1; }
+.sprig {
+  position: absolute; width: 210px; height: 300px; pointer-events: none; z-index: 0;
+  background-repeat: no-repeat; background-size: contain; opacity: .2;
+}
+.sprig.s1 { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 330'%3E%3Cpath d='M110 315 C 70 210 150 120 118 12' fill='none' stroke='%235c7a62' stroke-width='3' stroke-linecap='round'/%3E%3Cg transform='translate(101.4 283.9) rotate(-51.6) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(98.5 253.5) rotate(-145.3) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(100.1 223.7) rotate(-21.3) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(104.8 194.1) rotate(-127.0) scale(1.00)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(111.0 164.6) rotate(-22.4) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(117.5 135.1) rotate(-140.4) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(122.8 105.2) rotate(-34.1) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(125.6 74.9) rotate(-143.4) scale(0.72)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(124.5 43.9) rotate(-35.0) scale(0.65)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(118 12) rotate(-80)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62'/%3E%3C/g%3E%3C/svg%3E"); right: -30px; top: 20px; transform: rotate(14deg); }
+.sprig.s2 { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 330'%3E%3Cpath d='M110 315 C 70 210 150 120 118 12' fill='none' stroke='%235c7a62' stroke-width='3' stroke-linecap='round'/%3E%3Cg transform='translate(101.4 283.9) rotate(-51.6) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(98.5 253.5) rotate(-145.3) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(100.1 223.7) rotate(-21.3) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(104.8 194.1) rotate(-127.0) scale(1.00)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(111.0 164.6) rotate(-22.4) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(117.5 135.1) rotate(-140.4) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(122.8 105.2) rotate(-34.1) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(125.6 74.9) rotate(-143.4) scale(0.72)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(124.5 43.9) rotate(-35.0) scale(0.65)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(118 12) rotate(-80)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%235c7a62'/%3E%3C/g%3E%3C/svg%3E"); left: -40px; bottom: -30px; transform: rotate(-32deg) scaleX(-1); opacity: .22; }
+.sprig.s3 { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 330'%3E%3Cpath d='M110 315 C 70 210 150 120 118 12' fill='none' stroke='%23c9a14a' stroke-width='3' stroke-linecap='round'/%3E%3Cg transform='translate(101.4 283.9) rotate(-51.6) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(98.5 253.5) rotate(-145.3) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(100.1 223.7) rotate(-21.3) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(104.8 194.1) rotate(-127.0) scale(1.00)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(111.0 164.6) rotate(-22.4) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(117.5 135.1) rotate(-140.4) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(122.8 105.2) rotate(-34.1) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(125.6 74.9) rotate(-143.4) scale(0.72)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(124.5 43.9) rotate(-35.0) scale(0.65)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(118 12) rotate(-80)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a'/%3E%3C/g%3E%3C/svg%3E"); right: -20px; bottom: -40px; transform: rotate(-18deg); opacity: .25; }
+.sprig.s4 { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 330'%3E%3Cpath d='M110 315 C 70 210 150 120 118 12' fill='none' stroke='%23c9a14a' stroke-width='3' stroke-linecap='round'/%3E%3Cg transform='translate(101.4 283.9) rotate(-51.6) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(98.5 253.5) rotate(-145.3) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(100.1 223.7) rotate(-21.3) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(104.8 194.1) rotate(-127.0) scale(1.00)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(111.0 164.6) rotate(-22.4) scale(0.93)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(117.5 135.1) rotate(-140.4) scale(0.86)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(122.8 105.2) rotate(-34.1) scale(0.79)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.75'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(125.6 74.9) rotate(-143.4) scale(0.72)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.8'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(124.5 43.9) rotate(-35.0) scale(0.65)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a' opacity='0.85'/%3E%3Cpath d='M3 0 L46 0' stroke='%23fff' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate(118 12) rotate(-80)'%3E%3Cpath d='M0 0 C 12 -13 38 -14 54 0 C 38 12 12 13 0 0Z' fill='%23c9a14a'/%3E%3C/g%3E%3C/svg%3E"); left: -50px; top: 10px; transform: rotate(28deg) scaleX(-1); opacity: .22; }
+.section-head h2::after {
+  content: ""; display: block; width: 128px; height: 12px; margin-top: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 12'%3E%3Cpath d='M2 7 C 18 1, 30 11, 50 6 S 86 1, 102 7 S 128 10, 138 4' fill='none' stroke='%23c9a14a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left center / contain;
+}
+.section-head.center h2::after { margin-left: auto; margin-right: auto; background-position: center; }
+.about-img { border-radius: 14px 86px 14px 86px; }
+.pattern-band { height: 18px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='20' viewBox='0 0 72 20'%3E%3Cpolygon points='0,20 18,2 36,20' fill='%23c45c3a'/%3E%3Cpolygon points='36,20 54,2 72,20' fill='%23c9a14a'/%3E%3Cpolygon points='18,2 54,2 36,20' fill='%231a6fa8'/%3E%3Ccircle cx='18' cy='2' r='1.6' fill='%23faf6f0'/%3E%3Ccircle cx='54' cy='2' r='1.6' fill='%23faf6f0'/%3E%3Ccircle cx='36' cy='13' r='1.8' fill='%23faf6f0'/%3E%3C/svg%3E") repeat-x left top / auto 18px; margin: -42px 0 34px; }
+.donate-card { position: relative; padding-top: 46px; }
+.donate-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 15px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='20' viewBox='0 0 72 20'%3E%3Cpolygon points='0,20 18,2 36,20' fill='%23c45c3a'/%3E%3Cpolygon points='36,20 54,2 72,20' fill='%23c9a14a'/%3E%3Cpolygon points='18,2 54,2 36,20' fill='%231a6fa8'/%3E%3Ccircle cx='18' cy='2' r='1.6' fill='%23faf6f0'/%3E%3Ccircle cx='54' cy='2' r='1.6' fill='%23faf6f0'/%3E%3Ccircle cx='36' cy='13' r='1.8' fill='%23faf6f0'/%3E%3C/svg%3E") repeat-x left top / auto 15px; border-radius: 16px 16px 0 0;
+}
+.birds { position: absolute; right: 9%; top: 15%; width: 230px; z-index: 1; opacity: .6; pointer-events: none; animation: drift 16s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: translate(0, 0); } to { transform: translate(-26px, 12px); } }
+@media (prefers-reduced-motion: reduce) { .birds, .btn-donate .heart { animation: none; } }
+.trust-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--navy); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.d-tabs button .ic { display: block; width: 24px; height: 24px; margin: 0 auto 4px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.d-badges svg { width: 14px; height: 14px; }
+.heart { width: 16px; height: 16px; }
+@media (max-width: 700px) {
+  .sprig { width: 120px; height: 172px; }
+  .birds { width: 130px; right: 4%; top: 9%; }
+  .about-img { border-radius: 12px 54px 12px 54px; }
+}
+
+/* Header fit */
+.links a, .btn, .btn-donate { white-space: nowrap; }
+.links { gap: 20px; }
+@media (min-width: 901px) { .links a.nav-donate-link { display: none; } }
+
+/* Live donation additions */
+.d-error { color: #a3261b; font-size: 14px; margin-top: 12px; }
+.d-thanks { text-align: center; padding: 18px 6px 8px; }
+.d-thanks h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 24px; color: var(--navy); margin: 8px 0 8px; }
+.d-thanks p { color: var(--muted); margin-bottom: 20px; }
+.d-thanks-leaf svg { width: 44px; height: 44px; }
+.d-fallback { text-align: center; padding: 10px 0 6px; }
+.d-fallback h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 22px; color: var(--navy); margin-bottom: 8px; }
+.d-fallback p { color: var(--muted); margin-bottom: 14px; }
+.d-fb-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.d-tabs { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); }
+[hidden] { display: none !important; }
+
+@media (max-width: 1120px) { .nav > .btn { display: none; } .links { gap: 16px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="IHAF home">
+      <img class="brand-logo" src="ihaf-logo.png" alt="IHAF logo">
+      <span class="brand-text">
+        <strong>IHAF</strong>
+        <small>International Humanitarian Aid Federation</small>
+      </span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#focus">Our Focus</a>
+      <a href="#stories">Stories</a>
+      <a href="#media">Photos &amp; Videos</a>
+      <a class="nav-donate-link" href="#donate">Donate</a>
+      <a href="#join">Get Involved</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn-donate" href="#donate"><svg class='heart' viewBox='0 0 24 24' fill='currentColor' aria-hidden='true'><path d='M12 21C12 21 3 14.600 3 8.600A4.500 4.500 0 0 1 12 6.600 4.500 4.500 0 0 1 21 8.600C21 14.600 12 21 12 21Z'/></svg> Donate</a>
+    <a class="btn" href="#join">Partner with IHAF</a>
+    <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-bg" role="img" aria-label="Children in a classroom in Sierra Leone"></div>
+    <svg class='birds' viewBox='0 0 240 90' fill='none' stroke='#fff' stroke-width='2.600' stroke-linecap='round' aria-hidden='true'><path d='M8 30 Q 22 12 36 28 Q 50 10 64 30'/><path d='M96 54 Q 107 40 118 52 Q 129 38 140 54' stroke-width='2.200'/><path d='M168 18 Q 177 8 186 17 Q 195 7 204 18' stroke-width='1.800'/><path d='M60 78 Q 68 68 76 76 Q 84 66 92 78' stroke-width='1.600'/></svg>
+    <div class="wrap hero-content">
+      <div class="eyebrow">Humanity knows no borders</div>
+      <h1>One Humanity.<br>One Mission.<br><span>Global Impact.</span></h1>
+      <p>IHAF is a proposed global platform for cooperation, compassion and practical support — rooted in Uganda, open to the world.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#about">Discover our mission</a>
+        <a class="btn btn-outline" href="#join">Get involved</a>
+      </div>
+    </div>
+    <svg class='wave bottom' viewBox='0 0 1440 60' preserveAspectRatio='none' aria-hidden='true'><path d='M0 22 C 260 66, 520 0, 800 34 S 1260 58, 1440 14 L1440 60 L0 60Z' fill='#081f36'/></svg>
+  </section>
+
+  <div class="photo-strip">
+    <img src="https://images.unsplash.com/photo-1728135020024-b617b9f96394?w=900&q=80" alt="Smiling child in a village in Uganda at golden hour">
+    <img src="https://images.pexels.com/photos/34253699/pexels-photo-34253699.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Group of children smiling together">
+    <img src="https://images.pexels.com/photos/19301627/pexels-photo-19301627.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Children posing in a village setting">
+    <div class="caption">Communities across Africa — dignity, learning and everyday life</div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="wrap trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox='0 0 24 24'><circle cx='12' cy='12.200' r='8.800'/><path d='M3.300 12h17.500M12 3.300c-3.600 3.500-3.600 13.900 0 17.400M12 3.200c3.700 3.600 3.600 13.800 0 17.500'/></svg></div>
+        <div>
+          <strong>Global cooperation</strong>
+          <span>Connecting partners across borders</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox='0 0 24 24'><path d='M12 16.500c-3.800-2.400-6.600-4.800-6.600-7.700A3.500 3.500 0 0 1 12 7.200a3.500 3.500 0 0 1 6.600 1.600c0 2.900-2.800 5.300-6.600 7.700Z'/><path d='M3 15.800c2 2.400 4.500 4 9 4.700 4.500-.7 7-2.300 9-4.700'/></svg></div>
+        <div>
+          <strong>Human dignity</strong>
+          <span>Respect and care for every person</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox='0 0 24 24'><circle cx='8.800' cy='12' r='5.200'/><circle cx='15.200' cy='12.200' r='5.200'/><path d='M12 8.200c1 1 1.200 2.400 0 3.700'/></svg></div>
+        <div>
+          <strong>Shared action</strong>
+          <span>Working together for real support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="sprig s1"></div>
+    <div class="wrap about-grid">
+      <div>
+        <div class="section-head">
+          <div class="kicker">Who we are</div>
+          <h2>A shared mission, stronger together.</h2>
+          <p>Humanitarian challenges are too large for any one organisation to solve alone. IHAF’s vision is to help charities, aid organisations, donors, volunteers and communities cooperate so support reaches people more effectively.</p>
+          <p style="margin-top:14px;color:var(--muted)">With roots intended in Uganda and a global outlook, we aim for partnerships that put people first.</p>
+        </div>
+        <div class="about-panel">
+          <h3>Our guiding commitments</h3>
+          <div class="check"><span class="mark">✓</span><span><strong>Humanity</strong> — reduce suffering wherever people need help.</span></div>
+          <div class="check"><span class="mark">✓</span><span><strong>Impartiality</strong> — support based on need, without discrimination.</span></div>
+          <div class="check"><span class="mark">✓</span><span><strong>Integrity</strong> — honest stewardship and accountability.</span></div>
+          <div class="check"><span class="mark">✓</span><span><strong>Cooperation</strong> — respect partners and work through voluntary agreements.</span></div>
+          <div class="check"><span class="mark">✓</span><span><strong>Local leadership</strong> — listen to communities and support local solutions.</span></div>
+        </div>
+      </div>
+      <div class="about-img">
+        <img src="https://images.pexels.com/photos/33976322/pexels-photo-33976322.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Children playing and laughing in an African village street">
+      </div>
+    </div>
+  </section>
+
+  <section class="areas" id="focus">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="kicker">Where help can make a difference</div>
+        <h2>Our humanitarian focus</h2>
+        <p>Proposed areas of work, developed with partners and the communities they serve.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1567057419565-4349c49d8a04?w=600&q=80" alt="Children in a classroom in Sierra Leone">
+          </div>
+          <div class="card-body">
+            <h3>Education</h3>
+            <p>Learning opportunities, school support and pathways for young people.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img">
+            <img src="https://images.pexels.com/photos/31095001/pexels-photo-31095001.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Woman serving food to children in an African community">
+          </div>
+          <div class="card-body">
+            <h3>Food &amp; basic needs</h3>
+            <p>Access to food, clean water, essential supplies and safe shelter.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img">
+            <img src="https://images.pexels.com/photos/34253699/pexels-photo-34253699.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Children smiling together outdoors">
+          </div>
+          <div class="card-body">
+            <h3>Community development</h3>
+            <p>Locally led initiatives that strengthen resilience and opportunity.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img">
+            <img src="https://images.pexels.com/photos/19301627/pexels-photo-19301627.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Children in a village with thatched homes">
+          </div>
+          <div class="card-body">
+            <h3>Emergency relief</h3>
+            <p>Coordinated responses to disasters, displacement and urgent needs.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1543181077-099f32f30a1c?w=600&q=80" alt="People carrying water containers in rural Africa">
+          </div>
+          <div class="card-body">
+            <h3>Clean water</h3>
+            <p>Supporting access to safe water and basic sanitation for communities.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img">
+            <img src="https://images.pexels.com/photos/33976322/pexels-photo-33976322.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Village street with children and community members">
+          </div>
+          <div class="card-body">
+            <h3>Faith &amp; community spaces</h3>
+            <p>Respect for places of worship and community buildings that bring people together.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="kicker">How we aim to work</div>
+        <h2>From good intentions to practical action</h2>
+        <p>Trust is built through clear responsibilities, community participation and results that can be explained.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact">
+          <strong>01</strong>
+          <span>Listen to communities and understand the need.</span>
+        </div>
+        <div class="impact">
+          <strong>02</strong>
+          <span>Work with credible local and international partners.</span>
+        </div>
+        <div class="impact">
+          <strong>03</strong>
+          <span>Use resources responsibly and communicate clearly.</span>
+        </div>
+        <div class="impact">
+          <strong>04</strong>
+          <span>Review outcomes, learn and improve the response.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories" id="stories">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">On the ground</div>
+        <h2>Moments that remind us why this work matters</h2>
+        <p>These photographs come from communities across Africa. They are not IHAF programmes — they show the people and places humanitarian work seeks to serve with dignity.</p>
+      </div>
+      <div class="story-grid">
+        <div class="story-large">
+          <img src="https://images.pexels.com/photos/31095001/pexels-photo-31095001.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Woman serving food to children in an African community">
+          <div class="overlay">
+            <h3>Food that reaches people</h3>
+            <p>A community meal being shared — food security remains one of the most immediate humanitarian needs.</p>
+          </div>
+        </div>
+        <div class="story-side">
+          <div class="story-small">
+            <img src="https://images.unsplash.com/photo-1543181077-099f32f30a1c?w=700&q=80" alt="People carrying water in rural Africa">
+            <div class="overlay">
+              <h3>Water is life</h3>
+              <p>Many communities still walk long distances for water. Clean water changes everything.</p>
+            </div>
+          </div>
+          <div class="story-small">
+            <img src="https://images.unsplash.com/photo-1567057419565-4349c49d8a04?w=700&q=80" alt="Classroom of children">
+            <div class="overlay">
+              <h3>Learning together</h3>
+              <p>Education remains one of the strongest foundations for opportunity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ============================================
+       MEDIA GALLERY – EASY TO EDIT
+       How to add a new image:
+       1. Upload your image to the GitHub repository
+       2. Copy one of the blocks below
+       3. Change the file name (e.g. my-photo.jpg)
+       4. Change the caption text
+       ============================================ -->
+  <section id="media" style="background:var(--sand);">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="kicker">Photos &amp; Videos</div>
+        <h2>Moments from the field</h2>
+        <p>Add new photos or videos by uploading the file to GitHub and copying a block below.</p>
+      </div>
+
+      <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+        <!-- IMAGE EXAMPLE 1 – replace src and caption -->
+        <article class="card">
+          <div class="card-img" style="height:200px;">
+            <img src="https://images.pexels.com/photos/31095001/pexels-photo-31095001.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Food distribution">
+          </div>
+          <div class="card-body">
+            <h3>Community meal</h3>
+            <p>Food being shared in the community.</p>
+          </div>
+        </article>
+
+        <!-- IMAGE EXAMPLE 2 -->
+        <article class="card">
+          <div class="card-img" style="height:200px;">
+            <img src="https://images.unsplash.com/photo-1543181077-099f32f30a1c?w=600&q=80" alt="Water collection">
+          </div>
+          <div class="card-body">
+            <h3>Clean water</h3>
+            <p>Access to safe water remains a daily challenge in many areas.</p>
+          </div>
+        </article>
+
+        <!-- VIDEO EXAMPLE – replace the YouTube ID -->
+        <article class="card">
+          <div class="card-img" style="height:200px; background:#111; display:flex; align-items:center; justify-content:center;">
+            <div style="position:relative; width:100%; height:100%;">
+              <iframe 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" 
+                allowfullscreen
+                title="Video">
+              </iframe>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Video message</h3>
+            <p>Replace this with your own YouTube video ID.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="margin-top:36px; padding:22px; background:white; border-radius:12px; border:1px dashed var(--line); font-size:14px; color:var(--muted);">
+        <strong style="color:var(--navy);">How to add your own image or video</strong><br><br>
+        <strong>Image:</strong> Upload the file to GitHub → copy one image card above → change <code>src="your-file.jpg"</code> and the caption.<br><br>
+        <strong>Video:</strong> Upload to YouTube → copy the video card → replace the YouTube ID in the <code>src</code> link.
+      </div>
+    </div>
+  </section>
+
+  <section id="donate">
+    <svg class='wave top' viewBox='0 0 1440 60' preserveAspectRatio='none' aria-hidden='true'><path d='M0 0 L1440 0 L1440 24 C 1180 66, 900 -4, 620 34 S 200 62, 0 20 Z' fill='#f3ebe0'/></svg>
+    <div class="sprig s2"></div>
+    <div class="sprig s3"></div>
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="kicker">Support IHAF</div>
+        <h2>Give to support our mission.</h2>
+        <p>Every contribution supports humanitarian cooperation and community programmes in Uganda and beyond.</p>
+      </div>
+
+      <div class="donate-card" id="donateCard">
+        <div id="d-main">
+          <div class="d-toggle" id="d-freq" role="group" aria-label="Donation frequency" hidden>
+            <button type="button" class="active" data-freq="One-Time">One-Time Gift</button>
+            <button type="button" data-freq="Monthly">Monthly</button>
+          </div>
+
+          <div class="d-head">
+            <span>Select amount</span>
+            <select id="d-currency" aria-label="Currency">
+              <option value="USD">USD ($)</option>
+              <option value="UGX">UGX (Shs)</option>
+            </select>
+          </div>
+          <div class="d-amounts" id="d-presets"></div>
+          <input type="number" id="d-custom" min="1" placeholder="Or enter a custom amount…">
+
+          <span class="d-label">Choose how to give</span>
+          <div class="d-tabs" id="d-tabs"></div>
+          <div id="d-panels"></div>
+
+          <form id="donateForm">
+            <div class="d-fields">
+              <input id="d-name" type="text" placeholder="Full name" required autocomplete="name">
+              <input id="d-email" type="email" placeholder="Email address (for your receipt)" required autocomplete="email">
+              <select id="d-method" aria-label="How you are giving"></select>
+              <input id="d-ref" type="text" placeholder="Transaction reference / MTCN (optional)">
+            </div>
+            <label class="d-fee"><input type="checkbox" id="d-fee"> I’d like to add 3% to cover processing fees</label>
+            <div class="d-total"><span id="d-summary">One-Time gift</span><span id="d-total">—</span></div>
+            <button class="btn d-submit" id="d-submit" type="submit">Donate now</button>
+            <p class="d-error" id="d-error" role="alert" hidden></p>
+          </form>
+        </div>
+
+        <div class="d-fallback" id="d-fallback" hidden>
+          <h3>Give to IHAF</h3>
+          <p>To make a gift, please get in touch and we will guide you personally.</p>
+          <p class="d-fb-actions">
+            <a class="btn" href="mailto:ihaf.global@gmail.com">Email us</a>
+            <a class="btn-whatsapp" href="https://wa.me/256749269482?text=Hello%20IHAF%2C%20I%20would%20like%20to%20make%20a%20donation." target="_blank" rel="noopener">WhatsApp</a>
+          </p>
+        </div>
+
+        <div class="d-thanks" id="d-thanks" hidden>
+          <div class="d-thanks-leaf"><svg class='lf' viewBox='0 0 16 16' aria-hidden='true'><path d='M2 14C2 7 7 2 14 2c0 7-5 12-12 12Z' fill='#5c7a62'/><path d='M3 13 9 7' stroke='#faf6f0' stroke-width='1' stroke-linecap='round'/></svg></div>
+          <h3>Thank you<span id="d-thanks-name"></span>.</h3>
+          <p id="d-thanks-msg"></p>
+          <button type="button" class="btn" id="d-again">Give again</button>
+        </div>
+
+        <div class="d-badges" id="d-badges"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <svg class='wave top' viewBox='0 0 1440 60' preserveAspectRatio='none' aria-hidden='true'><path d='M0 0 L1440 0 L1440 24 C 1180 66, 900 -4, 620 34 S 200 62, 0 20 Z' fill='#ffffff'/></svg>
+    <div class="wrap join-grid">
+      <div>
+        <div class="eyebrow" style="color:var(--gold-soft)">Be part of the mission</div>
+        <h2>Humanitarian progress starts when we work together.</h2>
+        <p>Are you a charity, community organisation, potential donor, volunteer or humanitarian professional? Tell us how you would like to contribute.</p>
+        <p>Partnerships should be based on shared values, due diligence and clear agreements.</p>
+      </div>
+      <form class="join-box" id="interestForm">
+        <h3>Express your interest</h3>
+        <label for="name">Your name</label>
+        <input id="name" name="name" placeholder="Enter your name" required>
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        <label for="role">I am interested as a…</label>
+        <select id="role" name="role">
+          <option>Volunteer</option>
+          <option>Charity / NGO</option>
+          <option>Potential partner</option>
+          <option>Donor / supporter</option>
+          <option>Humanitarian professional</option>
+          <option>Other</option>
+        </select>
+        <label for="message">How would you like to help?</label>
+        <textarea id="message" name="message" placeholder="Tell us a little about your interest"></textarea>
+        <button class="btn" type="submit">Prepare interest message →</button>
+        <p id="formResult" role="status" style="display:none;color:#145c37;font-size:13px;margin-top:10px"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <svg class='wave top' viewBox='0 0 1440 60' preserveAspectRatio='none' aria-hidden='true'><path d='M0 0 L1440 0 L1440 24 C 1180 66, 900 -4, 620 34 S 200 62, 0 20 Z' fill='#0c2d4d'/></svg>
+    <div class="sprig s4"></div>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Contact &amp; next steps</div>
+        <h2>Help shape the IHAF vision.</h2>
+        <p>We welcome conversations with people and organisations interested in principled humanitarian cooperation.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>IHAF — International Humanitarian Aid Federation</h3>
+          <p><strong>Proposed base:</strong> Uganda<br>
+          <strong>Email:</strong> <a href="mailto:ihaf.global@gmail.com" style="color:var(--blue);font-weight:600">ihaf.global@gmail.com</a><br>
+          <strong>WhatsApp:</strong> <a href="https://wa.me/256749269482" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">+256 749 269482</a><br>
+          <strong>Scope:</strong> International humanitarian cooperation</p>
+          <p style="margin:18px 0 8px">
+            <a class="btn-whatsapp" href="https://wa.me/256749269482?text=Hello%20IHAF%2C%20I%20would%20like%20to%20get%20in%20touch." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Chat on WhatsApp
+            </a>
+          </p>
+          <p class="arabic">الاتحاد الدولي للمساعدات الإنسانية</p>
+          <p style="font-size:13px;color:var(--muted)">International Federation for Humanitarian Aid</p>
+          <div class="notice">IHAF is presented here as a proposed organisation. Registration, official contacts, partnerships, programmes and fundraising must be confirmed before public launch.</div>
+        </div>
+        <div class="contact-card">
+          <h3>Before public launch</h3>
+          <p>Confirm legal registration and name availability, appoint accountable leadership, publish safeguarding and financial policies, and add verified contact details.</p>
+          <p>Do not publish donation instructions until legal status, banking arrangements and financial controls are established.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="pattern-band" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"><span>IHAF</span> | International Humanitarian Aid Federation</div>
+        <p>One Humanity. One Mission. Global Impact. A proposed humanitarian federation focused on cooperation, dignity and responsible support.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#focus">Our focus</a>
+        <a href="#stories">Stories</a>
+        <a href="#donate">Donate</a>
+        <a href="#join">Get involved</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© <span id="year"></span> IHAF concept website. <span id="updated"></span> Photos: Unsplash / Pexels.</span>
+      <span>Humanity • Cooperation • Accountability</span>
+    </div>
+  </div>
+</footer>
+
+<script id="ihaf-settings">
+/* =====================================================================
+   IHAF DONATION SETTINGS — fill in what you have; leave the rest empty.
+   Anything left empty is hidden from visitors automatically.
+   ===================================================================== */
+window.IHAF_SETTINGS = {
+  // Online payments (card + MTN/Airtel mobile money) — Flutterwave PUBLIC key, starts with FLWPUBK-
+  flutterwavePublicKey: '',
+  // Monthly giving: Flutterwave payment plan IDs (create plans in your Flutterwave dashboard)
+  monthlyPlanIds: { USD: '', UGX: '' },
+  // Optional: form address (e.g. from formspree.io) so "I've sent my gift" notes are delivered without leaving the page
+  formEndpoint: '',
+
+  ngoRegistrationNumber: '',
+
+  mobileMoney: {
+    mtnMerchantId: '', mtnPhone: '', airtelMerchantId: '', airtelPhone: '', registeredName: ''
+  },
+  bank: {
+    bankName: '', accountName: '', ugxAccountNumber: '', usdAccountNumber: '', swiftBic: ''
+  },
+  westernUnion: {
+    receiverName: '', cityCountry: 'Kampala, Uganda', receiverPhone: '', idNumber: ''
+  },
+  crypto: {
+    binancePayId: '', binanceEmail: '', usdtTrc20: '', btc: ''
+  }
+};
+</script>
+<script>
+const menu = document.getElementById('menu');
+const nav = document.getElementById('navlinks');
+menu.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? '✕' : '☰';
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menu.setAttribute('aria-expanded', 'false');
+  menu.textContent = '☰';
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
+const updated = document.getElementById('updated');
+if (updated) {
+  const d = new Date();
+  updated.textContent = 'Last updated: ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '.';
+}
+document.getElementById('interestForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.currentTarget;
+  const body = `IHAF expression of interest\nName: ${f.name.value}\nEmail: ${f.email.value}\nInterested as: ${f.role.value}\nMessage: ${f.message.value || 'No message added.'}`;
+  const subject = encodeURIComponent('Expression of interest in IHAF');
+  const mailto = 'mailto:ihaf.global@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+  // Open the user's email app directly with the correct recipient
+  window.location.href = mailto;
+  const result = document.getElementById('formResult');
+  result.style.display = 'block';
+  result.innerHTML = 'Opening your email app to send to <strong>ihaf.global@gmail.com</strong>…<br>If nothing opens, <a href="' + mailto + '" style="color:#145c37;font-weight:bold">click here to send</a>.';
+});
+
+/* ===== Donate section ===== */
+(function () {
+  const C = window.IHAF_SETTINGS || {};
+  const PRESETS = { USD: [25, 50, 100, 250], UGX: [50000, 100000, 250000, 500000] };
+  const SYMBOL = { USD: '$', UGX: 'Shs ' };
+  const $ = id => document.getElementById(id);
+  const val = v => (v || '').toString().trim();
+  let freq = 'One-Time', amount = 25;
+
+  const ICON = {
+    card:  "<svg class='ic' viewBox='0 0 24 24'><rect x='2.5' y='5' width='19' height='14' rx='2.2'/><path d='M2.5 10h19M6 15h4'/></svg>",
+    phone: "<svg class='ic' viewBox='0 0 24 24'><rect x='7' y='2.5' width='10' height='19' rx='2.2'/><path d='M10.6 18.4h2.8'/></svg>",
+    bank:  "<svg class='ic' viewBox='0 0 24 24'><path d='M3 9.5 12 4l9 5.500zM6 11.500v6M10 11.500v6M14 11.500v6M18 11.500v6M3.500 20h17'/></svg>",
+    globe: "<svg class='ic' viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><ellipse cx='12' cy='12' rx='4' ry='9'/><path d='M3.200 9h17.600M3.200 15h17.600'/></svg>",
+    coin:  "<svg class='ic' viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><path d='M9.500 7.500v9M9.500 7.500h3.600a2 2 0 0 1 0 4H9.500m0 0h4.200a2.100 2.100 0 0 1 0 4.500H9.500'/></svg>"
+  };
+  const LEAF = "<svg class='lf' viewBox='0 0 16 16' aria-hidden='true'><path d='M2 14C2 7 7 2 14 2c0 7-5 12-12 12Z' fill='#5c7a62'/><path d='M3 13 9 7' stroke='#faf6f0' stroke-width='1' stroke-linecap='round'/></svg>";
+
+  const mm = C.mobileMoney || {}, bk = C.bank || {}, wu = C.westernUnion || {}, cr = C.crypto || {};
+  const METHODS = [
+    { id: 'online', label: 'Pay Online', icon: 'card', online: true,
+      title: 'Pay online — card or mobile money',
+      intro: 'Give instantly with Visa, Mastercard, MTN or Airtel Mobile Money. Everything happens right here on this page.',
+      rows: [], ok: !!val(C.flutterwavePublicKey) },
+    { id: 'momo', label: 'Mobile Money', icon: 'phone',
+      title: 'Mobile Money (Uganda)', intro: 'Send to any of the details below, then tell us so we can match your gift.',
+      rows: [['MTN MoMo Merchant ID', mm.mtnMerchantId], ['MTN Phone Number', mm.mtnPhone], ['Airtel Money Merchant ID', mm.airtelMerchantId], ['Airtel Phone Number', mm.airtelPhone], ['Registered Name', mm.registeredName]] },
+    { id: 'bank', label: 'Ugandan Bank', icon: 'bank',
+      title: 'Ugandan Bank Transfer', intro: 'EFT / RTGS / SWIFT. Please use your name as the payment reference.',
+      rows: [['Bank Name', bk.bankName], ['Account Name', bk.accountName], ['UGX Account Number', bk.ugxAccountNumber], ['USD Account Number', bk.usdAccountNumber], ['SWIFT / BIC Code', bk.swiftBic]] },
+    { id: 'wu', label: 'Western Union', icon: 'globe',
+      title: 'Western Union', intro: 'Send to the receiver below, then add your MTCN so we can match your gift.',
+      rows: [['Receiver Full Legal Name', wu.receiverName], ['City / Country', wu.cityCountry, true], ['Receiver Phone Number', wu.receiverPhone], ['National ID / Passport No.', wu.idNumber]] },
+    { id: 'crypto', label: 'Binance & Crypto', icon: 'coin',
+      title: 'Binance & Crypto', intro: 'Please double-check the network before sending. Wrong-network transfers cannot be recovered.',
+      rows: [['Binance Pay ID', cr.binancePayId], ['Binance Email', cr.binanceEmail], ['USDT (TRC20) Address', cr.usdtTrc20], ['Bitcoin (BTC) Address', cr.btc]] }
+  ];
+  METHODS.forEach(m => { if (!m.online) m.ok = m.rows.some(r => val(r[1]) && !r[2]); });
+  const AVAILABLE = METHODS.filter(m => m.ok);
+
+  const cur = () => $('d-currency').value;
+  const fmt = n => SYMBOL[cur()] + Number(n.toFixed(2)).toLocaleString('en-US');
+  const base = () => { const c = parseFloat($('d-custom').value); return c > 0 ? c : amount; };
+  const total = () => base() * ($('d-fee').checked ? 1.03 : 1);
+  const method = () => METHODS.find(m => m.id === $('d-method').value);
+  function update() {
+    $('d-summary').textContent = freq + ' gift' + ($('d-fee').checked ? ' (incl. 3% fees)' : '');
+    $('d-total').textContent = fmt(total());
+  }
+
+  function renderPresets() {
+    const box = $('d-presets'); box.innerHTML = '';
+    PRESETS[cur()].forEach((v, i) => {
+      const b = document.createElement('button'); b.type = 'button';
+      b.textContent = SYMBOL[cur()] + v.toLocaleString('en-US');
+      if (i === 0) b.classList.add('active');
+      b.addEventListener('click', () => {
+        box.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+        b.classList.add('active'); $('d-custom').value = ''; amount = v; update();
+      });
+      box.appendChild(b);
+    });
+    amount = PRESETS[cur()][0]; $('d-custom').value = ''; syncFreq(); update();
+  }
+
+  /* monthly toggle only appears when a plan exists for the chosen currency */
+  function syncFreq() {
+    const plans = C.monthlyPlanIds || {};
+    const has = !!val(plans[cur()]) && !!val(C.flutterwavePublicKey);
+    $('d-freq').hidden = !has;
+    if (!has && freq === 'Monthly') {
+      freq = 'One-Time';
+      document.querySelectorAll('#d-freq button').forEach(x => x.classList.toggle('active', x.dataset.freq === 'One-Time'));
+    }
+    update();
+  }
+
+  function buildMethods() {
+    if (!AVAILABLE.length) {
+      $('d-main').hidden = true; $('d-fallback').hidden = false; return;
+    }
+    const tabs = $('d-tabs'), panels = $('d-panels'), sel = $('d-method');
+    AVAILABLE.forEach((m, i) => {
+      const t = document.createElement('button'); t.type = 'button'; t.dataset.tab = m.id;
+      t.innerHTML = ICON[m.icon] + m.label;
+      if (i === 0) t.classList.add('active');
+      t.addEventListener('click', () => select(m.id, true));
+      tabs.appendChild(t);
+
+      const p = document.createElement('div'); p.className = 'd-panel'; p.id = 'tab-' + m.id;
+      const h = document.createElement('h3'); h.textContent = m.title; p.appendChild(h);
+      const d = document.createElement('p'); d.textContent = m.intro; p.appendChild(d);
+      m.rows.forEach(r => {
+        if (!val(r[1])) return;
+        const row = document.createElement('div'); row.className = 'd-row';
+        const sp = document.createElement('span'); sp.textContent = r[0] + ': ';
+        const b = document.createElement('b'); b.textContent = val(r[1]); sp.appendChild(b);
+        const c = document.createElement('button'); c.type = 'button'; c.className = 'copy'; c.textContent = 'Copy'; c.dataset.copy = val(r[1]);
+        row.appendChild(sp); row.appendChild(c); p.appendChild(row);
+      });
+      panels.appendChild(p);
+
+      const o = document.createElement('option'); o.value = m.id;
+      o.textContent = m.online ? 'Pay online now (card / mobile money)' : 'I sent my gift via ' + m.label;
+      sel.appendChild(o);
+    });
+    sel.addEventListener('change', () => select(sel.value, false));
+    select(AVAILABLE[0].id, false);
+  }
+
+  function select(id, scroll) {
+    document.querySelectorAll('#d-tabs button').forEach(x => x.classList.toggle('active', x.dataset.tab === id));
+    $('d-method').value = id;
+    const m = method();
+    $('d-ref').hidden = !!m.online;
+    $('d-submit').textContent = m.online ? 'Donate now' : 'I’ve sent my gift';
+    if (scroll) {
+      const p = $('tab-' + id); p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      p.classList.add('flash'); setTimeout(() => p.classList.remove('flash'), 1400);
+    }
+  }
+
+  document.addEventListener('click', async e => {
+    const btn = e.target.closest('#donate .copy'); if (!btn) return;
+    const v = btn.dataset.copy;
+    try { await navigator.clipboard.writeText(v); }
+    catch (err) { const t = document.createElement('textarea'); t.value = v; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+    const old = btn.textContent; btn.textContent = 'Copied ✓'; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1500);
+  });
+
+  document.querySelectorAll('#d-freq button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#d-freq button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active'); freq = b.dataset.freq; update();
+  }));
+  $('d-currency').addEventListener('change', renderPresets);
+  $('d-custom').addEventListener('input', () => { $('d-presets').querySelectorAll('button').forEach(x => x.classList.remove('active')); update(); });
+  $('d-fee').addEventListener('change', update);
+
+  function showError(msg) { const e = $('d-error'); e.textContent = msg; e.hidden = !msg; }
+  function thanks(msg) {
+    $('d-thanks-name').textContent = val($('d-name').value) ? ', ' + val($('d-name').value).split(' ')[0] : '';
+    $('d-thanks-msg').textContent = msg;
+    $('d-main').hidden = true; $('d-thanks').hidden = false;
+    $('donateCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  $('d-again').addEventListener('click', () => {
+    $('d-thanks').hidden = true; $('d-main').hidden = false; $('donateForm').reset(); renderPresets(); select($('d-method').value, false);
+  });
+
+  /* ----- online checkout (stays on this page) ----- */
+  let flwReady = null;
+  function loadFlutterwave() {
+    if (window.FlutterwaveCheckout) return Promise.resolve();
+    if (flwReady) return flwReady;
+    flwReady = new Promise((res, rej) => {
+      const s = document.createElement('script'); s.src = 'https://checkout.flutterwave.com/v3.js';
+      s.onload = res; s.onerror = () => { flwReady = null; rej(); }; document.head.appendChild(s);
+    });
+    return flwReady;
+  }
+  if (val(C.flutterwavePublicKey)) loadFlutterwave().catch(() => {});
+
+  function payOnline() {
+    const btn = $('d-submit'); btn.disabled = true; btn.textContent = 'Opening secure checkout…';
+    const reset = () => { btn.disabled = false; btn.textContent = 'Donate now'; };
+    loadFlutterwave().then(() => {
+      const cfg = {
+        public_key: val(C.flutterwavePublicKey),
+        tx_ref: 'IHAF-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+        amount: Number(total().toFixed(2)),
+        currency: cur(),
+        customer: { email: val($('d-email').value), name: val($('d-name').value) },
+        customizations: { title: 'IHAF', description: freq + ' donation', logo: 'ihaf-logo.png' },
+        callback: function (d) {
+          if (d && (d.status === 'successful' || d.status === 'completed')) {
+            try { modal.close(); } catch (e) {}
+            reset(); thanks('Your ' + fmt(total()) + ' gift has been received. A receipt is on its way to your email.');
+          } else { reset(); showError('The payment was not completed. You have not been charged.'); }
+        },
+        onclose: reset
+      };
+      const plan = (C.monthlyPlanIds || {})[cur()];
+      if (freq === 'Monthly' && val(plan)) cfg.payment_plan = val(plan);
+      const modal = window.FlutterwaveCheckout(cfg);
+    }).catch(() => { reset(); showError('Online checkout could not load. Please check your connection and try again.'); });
+  }
+
+  /* ----- manual gifts: notify IHAF without leaving the page ----- */
+  function notifyManual() {
+    const m = method();
+    const data = {
+      name: val($('d-name').value), email: val($('d-email').value), frequency: freq,
+      amount: fmt(total()), currency: cur(), covers_fees: $('d-fee').checked ? 'Yes' : 'No',
+      method: m.label, reference: val($('d-ref').value) || 'Not provided'
+    };
+    const done = () => thanks('We have your note about your ' + fmt(total()) + ' gift via ' + m.label + '. We will confirm once it arrives and send your receipt.');
+    if (val(C.formEndpoint)) {
+      const btn = $('d-submit'); btn.disabled = true; btn.textContent = 'Sending…';
+      fetch(C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+        .then(r => { if (!r.ok) throw 0; btn.disabled = false; select(m.id, false); done(); })
+        .catch(() => { btn.disabled = false; select(m.id, false); showError('We could not send your note just now. Please email ihaf.global@gmail.com or message us on WhatsApp.'); });
+    } else {
+      const body = Object.keys(data).map(k => k + ': ' + data[k]).join('\n');
+      window.location.href = 'mailto:ihaf.global@gmail.com?subject=' + encodeURIComponent('IHAF donation') + '&body=' + encodeURIComponent(body);
+      done();
+    }
+  }
+
+  $('donateForm').addEventListener('submit', e => {
+    e.preventDefault(); showError('');
+    if (!(total() > 0)) { showError('Please choose or enter an amount.'); return; }
+    method().online ? payOnline() : notifyManual();
+  });
+
+  /* ----- trust badges ----- */
+  const badges = [LEAF + ' Secure giving', LEAF + ' Receipts for every gift'];
+  if (val(C.ngoRegistrationNumber)) badges.push(LEAF + ' NGO Reg. No: ' + val(C.ngoRegistrationNumber).replace(/</g, '&lt;'));
+  badges.push(LEAF + ' Accountable &amp; transparent');
+  $('d-badges').innerHTML = badges.map(b => '<span>' + b + '</span>').join('');
+
+  buildMethods();
+  renderPresets();
+})();
+</script>
+
+<!-- Floating Donate button -->
+<a class="donate-float" href="#donate" aria-label="Donate"><svg class='heart' viewBox='0 0 24 24' fill='currentColor' aria-hidden='true'><path d='M12 21C12 21 3 14.600 3 8.600A4.500 4.500 0 0 1 12 6.600 4.500 4.500 0 0 1 21 8.600C21 14.600 12 21 12 21Z'/></svg> Donate</a>
+
+<!-- Floating WhatsApp button -->
+<a class="whatsapp-float" href="https://wa.me/256749269482?text=Hello%20IHAF%2C%20I%20would%20like%20to%20get%20in%20touch." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
